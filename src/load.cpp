@@ -1,7 +1,5 @@
 #include<gl_loader/gl.hpp>
 #include<gl_loader/load.hpp>
-#include<iostream>
-
 
 namespace gl_loader
 {
@@ -46,16 +44,11 @@ namespace gl_loader
 		wc.lpszMenuName = 0;
 		wc.style = 0;
 
-		std::cout << RegisterClassExW(&wc) << "\n";
-		std::cout << GetLastError() << "\n";
-		HWND hwnd = CreateWindowExW(0, wc.lpszClassName, L"", WS_OVERLAPPEDWINDOW, CW_DEFAULT, CW_DEFAULT, CW_DEFAULT, CW_DEFAULT, 0, 0, wc.hInstance, 0);
-		std::cout << GetLastError() << "\n";
+		RegisterClassExW(&wc);
+		HWND hwnd = CreateWindowExW(0, wc.lpszClassName, L"", WS_OVERLAPPEDWINDOW, 0, 0, 0, 0, 0, 0, wc.hInstance, 0);
 
-		std::cout << hwnd << "\n";
 
 		HDC hdc = GetDC(hwnd);
-		std::cout << GetLastError() << "\n";
-		std::cout << hdc << "\n";
 
 		PIXELFORMATDESCRIPTOR pfd =
 		{
@@ -82,17 +75,13 @@ namespace gl_loader
 		SetPixelFormat(hdc, pixel_format, &pfd);
 
 		HGLRC ctx = wglCreateContext(hdc);
-		std::cout << GetLastError() << "\n";
-		std::cout << ctx << "\n";
 
 		wglMakeCurrent(hdc, ctx);
-		std::cout << GetLastError() << "\n";
-		//gladLoaderLoadGL();
+
 		gladLoaderLoadGL();
 
 
 		wglDeleteContext(ctx);
-		std::cout << GetLastError() << "\n";
 
 		ReleaseDC(hwnd, hdc);
 		DestroyWindow(hwnd);

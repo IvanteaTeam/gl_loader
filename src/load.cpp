@@ -45,7 +45,7 @@ namespace gl_loader
 		wc.style = 0;
 
 		std::cout << RegisterClassA(&wc) << "\n";
-
+		std::cout << GetLastError() << "\n";
 		HWND hwnd = CreateWindowExA(0, wc.lpszClassName, "", WS_OVERLAPPEDWINDOW, 0, 0, 0, 0, 0, 0, wc.hInstance, 0);
 		std::cout << GetLastError() << "\n";
 

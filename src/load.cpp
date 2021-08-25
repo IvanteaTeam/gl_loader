@@ -4,23 +4,17 @@
 namespace gl_loader
 {
 
-	class load_helper
-	{
-	public:
-		load_helper()
-		{
-			load();
-		}
-		~load_helper() {}
-	};
+	static bool loaded = false;
 
-	static load_helper helper;
+	bool is_loaded()
+	{
+		return loaded;
+	}
 
 	static void load_impl();
 
 	void load()
 	{
-		static bool loaded = false;
 		if (!loaded)
 			load_impl();
 		loaded = true;

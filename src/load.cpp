@@ -1,3 +1,4 @@
+#include<gl_loader/gl.hpp>
 #include<gl_loader/load.hpp>
 
 namespace gl_loader
@@ -26,7 +27,7 @@ namespace gl_loader
 
 	void load_impl()
 	{
-
+		//gladLoaderLoadGL();
 	}
 
 }

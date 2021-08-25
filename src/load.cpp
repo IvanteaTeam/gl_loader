@@ -32,7 +32,8 @@ namespace gl_loader
 	{
 
 
-		WNDCLASSA wc;
+
+		WNDCLASSEXW wc;
 		wc.cbClsExtra = 0;
 		wc.cbWndExtra = 0;
 		wc.hbrBackground = 0;
@@ -40,13 +41,15 @@ namespace gl_loader
 		wc.hIcon = LoadIcon(0, IDI_APPLICATION);
 		wc.hInstance = GetModuleHandleA(0);
 		wc.lpfnWndProc = DefWindowProcW;
-		wc.lpszClassName = "gl_loader dummy window class";
+		wc.cbSize = sizeof(wc);
+		wc.hIconSm = wc.hIcon;
+		wc.lpszClassName = L"gl_loader dummy window class";
 		wc.lpszMenuName = 0;
 		wc.style = 0;
 
-		std::cout << RegisterClassA(&wc) << "\n";
+		std::cout << RegisterClassExW(&wc) << "\n";
 		std::cout << GetLastError() << "\n";
-		HWND hwnd = CreateWindowExA(0, wc.lpszClassName, "", WS_OVERLAPPEDWINDOW, 0, 0, 0, 0, 0, 0, wc.hInstance, 0);
+		HWND hwnd = CreateWindowExW(0, wc.lpszClassName, L"", WS_OVERLAPPEDWINDOW, CW_DEFAULT, CW_DEFAULT, CW_DEFAULT, CW_DEFAULT, 0, 0, wc.hInstance, 0);
 		std::cout << GetLastError() << "\n";
 
 		std::cout << hwnd << "\n";

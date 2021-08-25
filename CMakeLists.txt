@@ -28,7 +28,7 @@ if(NOT GL_LOADER_GL_VERSION)
 endif()
 
 
-glad_add_library(glad_lib STATIC EXCLUDE_FROM_ALL QUIET LOADER ALIAS LOCATION ${glad_BINARY_DIR}/ API gl:core=${GL_LOADER_GL_VERSION} wgl=1.0  EXTENSIONS ${GL_LOADER_GL_EXTENSIONS})
+glad_add_library(libglad STATIC EXCLUDE_FROM_ALL QUIET LOADER ALIAS LOCATION ${glad_BINARY_DIR}/ API gl:core=${GL_LOADER_GL_VERSION} wgl=1.0  EXTENSIONS ${GL_LOADER_GL_EXTENSIONS})
 
 
 project(gl_loader LANGUAGES CXX)
@@ -42,6 +42,6 @@ add_library(gl_loader STATIC ${headers} ${src})
 
 target_compile_features(gl_loader PUBLIC cxx_std_17)
 target_include_directories(gl_loader PUBLIC ${dir}/include ${glad_BINARY_DIR}/include)
-target_link_libraries(gl_loader PRIVATE glad_lib opengl32.lib)
+target_link_libraries(gl_loader PRIVATE libglad opengl32.lib)
 
 add_library(gl::loader ALIAS gl_loader)

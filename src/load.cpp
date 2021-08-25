@@ -58,6 +58,30 @@ namespace gl_loader
 		std::cout << GetLastError() << "\n";
 		std::cout << hdc << "\n";
 
+		PIXELFORMATDESCRIPTOR pfd =
+		{
+			sizeof(PIXELFORMATDESCRIPTOR),
+			1,
+			PFD_DRAW_TO_WINDOW | PFD_SUPPORT_OPENGL | PFD_DOUBLEBUFFER,
+			PFD_TYPE_RGBA,
+			32,
+			0, 0, 0, 0, 0, 0,
+			0,
+			0,
+			0,
+			0, 0, 0, 0,
+			24,
+			8,
+			0,
+			PFD_MAIN_PLANE,
+			0,
+			0, 0, 0
+		};
+
+		int pixel_format = ChoosePixelFormat(hdc, &pfd);
+
+		SetPixelFormat(hdc, pixel_format, &pfd);
+
 		HGLRC ctx = wglCreateContext(hdc);
 		std::cout << GetLastError() << "\n";
 		std::cout << ctx << "\n";

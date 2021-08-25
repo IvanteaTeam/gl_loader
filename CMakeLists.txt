@@ -18,8 +18,6 @@ if(NOT glad_POPULATED)
 
 endif()
 
-set(GLAD_SOURCES_DIR ${glad_SOURCE_DIR})
-
 add_subdirectory(${glad_SOURCE_DIR}/cmake/ ${glad_BINARY_DIR} EXCLUDE_FROM_ALL)
 
 

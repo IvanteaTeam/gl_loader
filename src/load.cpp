@@ -45,7 +45,7 @@ namespace gl_loader
 		wc.style = 0;
 
 		RegisterClassExW(&wc);
-		HWND hwnd = CreateWindowExW(0, wc.lpszClassName, L"", WS_OVERLAPPEDWINDOW, 0, 0, 0, 0, 0, 0, wc.hInstance, 0);
+		HWND hwnd = CreateWindowExW(0, wc.lpszClassName, L"", WS_OVERLAPPEDWINDOW, -1, -1, -1, -1, 0, 0, wc.hInstance, 0);
 
 
 		HDC hdc = GetDC(hwnd);

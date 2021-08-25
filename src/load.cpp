@@ -1,5 +1,6 @@
 #include<gl_loader/gl.hpp>
 #include<gl_loader/load.hpp>
+#include<iostream>
 
 namespace gl_loader
 {
@@ -45,9 +46,13 @@ namespace gl_loader
 
 		HWND hwnd = CreateWindowExA(0, wc.lpszClassName, "", 0, 0, 0, 0, 0, 0, 0, wc.hInstance, 0);
 
+		std::cout << hwnd << "\n";
+
 		HDC hdc = GetDC(hwnd);
 
 		HGLRC ctx = wglCreateContext(hdc);
+
+		std::cout << ctx << "\n";
 
 		wglMakeCurrent(hdc, ctx);
 

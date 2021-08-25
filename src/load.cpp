@@ -11,8 +11,12 @@ namespace gl_loader
 	public:
 		load_helper()
 		{
-			printf("here\n");
+			std::cout << "helper\n";
 			load();
+		}
+		~load_helper()
+		{
+			std::cout << "~herlper\n";
 		}
 	};
 

@@ -73,6 +73,7 @@ namespace gl_loader
 
 		wglMakeCurrent(hdc, ctx);
 
+		gladLoaderLoadWGL(hdc);
 		gladLoaderLoadGL();
 
 

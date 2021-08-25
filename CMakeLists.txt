@@ -42,4 +42,6 @@ add_library(gl_loader STATIC ${headers} ${src})
 
 target_compile_features(gl_loader PUBLIC cxx_std_17)
 target_include_directories(gl_loader PUBLIC ${dir}/include ${glad_BINARY_DIR}/include)
-target_link_libraries(gl_loader PRIVATE glad_lib)
+target_link_libraries(gl_loader PRIVATE glad_lib opengl32.lib)
+
+add_library(gl::loader ALIAS gl_loader)

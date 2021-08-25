@@ -71,7 +71,7 @@ namespace gl_loader
 
 		ReleaseDC(hwnd, hdc);
 		DestroyWindow(hwnd);
-		UnregisterClassA(wc.lpszClassName, wc.hInstance);
+		UnregisterClassW(wc.lpszClassName, wc.hInstance);
 	}
 
 }

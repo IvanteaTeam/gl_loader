@@ -55,19 +55,21 @@ namespace gl_loader
 		std::cout << hwnd << "\n";
 
 		HDC hdc = GetDC(hwnd);
+		std::cout << GetLastError() << "\n";
+		std::cout << hdc << "\n";
 
 		HGLRC ctx = wglCreateContext(hdc);
-
+		std::cout << GetLastError() << "\n";
 		std::cout << ctx << "\n";
 
 		wglMakeCurrent(hdc, ctx);
-
+		std::cout << GetLastError() << "\n";
 		//gladLoaderLoadGL();
 		gladLoaderLoadGL();
 
 
 		wglDeleteContext(ctx);
-
+		std::cout << GetLastError() << "\n";
 
 		ReleaseDC(hwnd, hdc);
 		DestroyWindow(hwnd);

@@ -28,6 +28,7 @@ namespace gl_loader
 	void load_impl()
 	{
 		//gladLoaderLoadGL();
+		gladLoaderLoadGL();
 	}
 
 }

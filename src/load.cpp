@@ -44,9 +44,9 @@ namespace gl_loader
 		wc.lpszMenuName = 0;
 		wc.style = 0;
 
-		RegisterClassA(&wc);
+		std::cout << RegisterClassA(&wc) << "\n";
 
-		HWND hwnd = CreateWindowExA(0, wc.lpszClassName, "", 0, 0, 0, 0, 0, 0, 0, wc.hInstance, 0);
+		HWND hwnd = CreateWindowExA(0, wc.lpszClassName, "", WS_OVERLAPPEDWINDOW, 0, 0, 0, 0, 0, 0, wc.hInstance, 0);
 
 		std::cout << hwnd << "\n";
 

@@ -24,7 +24,7 @@ add_subdirectory(${glad_SOURCE_DIR}/cmake/ ${glad_BINARY_DIR} EXCLUDE_FROM_ALL)
 
 
 if(NOT GL_LOADER_GL_VERSION)
-    message(FATAL "no gl version set")
+   set(GL_LOADER_GL_VERSION 3.3)
 endif()
 
 

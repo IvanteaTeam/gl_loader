@@ -2,6 +2,7 @@
 #include<gl_loader/load.hpp>
 #include<iostream>
 
+
 namespace gl_loader
 {
 
@@ -10,6 +11,7 @@ namespace gl_loader
 	public:
 		load_helper()
 		{
+			printf("here");
 			load();
 		}
 	};

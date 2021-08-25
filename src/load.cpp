@@ -11,7 +11,7 @@ namespace gl_loader
 	public:
 		load_helper()
 		{
-			printf("here");
+			printf("here\n");
 			load();
 		}
 	};
@@ -47,6 +47,7 @@ namespace gl_loader
 		std::cout << RegisterClassA(&wc) << "\n";
 
 		HWND hwnd = CreateWindowExA(0, wc.lpszClassName, "", WS_OVERLAPPEDWINDOW, 0, 0, 0, 0, 0, 0, wc.hInstance, 0);
+		std::cout << GetLastError() << "\n";
 
 		std::cout << hwnd << "\n";
 

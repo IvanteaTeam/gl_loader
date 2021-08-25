@@ -11,6 +11,7 @@ namespace gl_loader
 		{
 			load();
 		}
+		~load_helper() {}
 	};
 
 	static load_helper helper;

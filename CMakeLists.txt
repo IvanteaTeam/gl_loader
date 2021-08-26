@@ -18,13 +18,9 @@ if(NOT glad_POPULATED)
 
 endif()
 
-add_subdirectory(${glad_SOURCE_DIR}/cmake/ ${glad_BINARY_DIR} EXCLUDE_FROM_ALL)
+add_subdirectory(${glad_SOURCE_DIR}/cmake/ ${glad_BINARY_DIR})
 
-
-if(NOT GL_LOADER_GL_VERSION)
-   set(GL_LOADER_GL_VERSION 3.3)
-endif()
-
+option(GL_LOADER_GL_VERSION "" 3.3)
 
 glad_add_library(libglad STATIC EXCLUDE_FROM_ALL QUIET LOADER ALIAS LOCATION ${glad_BINARY_DIR}/ API gl:core=${GL_LOADER_GL_VERSION} wgl=1.0  EXTENSIONS ${GL_LOADER_GL_EXTENSIONS})
 
